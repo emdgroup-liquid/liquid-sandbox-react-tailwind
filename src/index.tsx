@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "tailwindcss/tailwind.css";
+import "@emdgroup-liquid/liquid/dist/css/liquid.css";
+import { defineCustomElements, setAssetPath } from "@emdgroup-liquid/liquid";
+import App from "./App";
+
+defineCustomElements();
+setAssetPath(window.location.origin);
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
