@@ -1,6 +1,13 @@
-import { ThemeName } from "@emdgroup-liquid/liquid/dist/types/components/ld-theme/ld-theme";
 import * as React from "react";
+import { ThemeName } from "@emdgroup-liquid/liquid/dist/types/components/ld-theme/ld-theme";
+import Footer from "./components/Footer/Footer";
 import Form from "./components/Form/Form";
+import {
+  LdBgCells,
+  LdHeading,
+  LdNotification,
+  LdTheme,
+} from "@emdgroup-liquid/liquid/dist/react";
 
 const successMessages = [
   "Nice! 👍",
@@ -19,7 +26,7 @@ const successMessages = [
   "Outa space! 👽",
 ];
 
-function App() {
+const App: React.FC = () => {
   const [currentTheme, setCurrentTheme] = React.useState<ThemeName>("ocean");
   const handleChangeTheme = React.useCallback((theme: ThemeName) => {
     setCurrentTheme(theme);
@@ -38,24 +45,25 @@ function App() {
       successMessages.push(content!);
     }, 500);
   }, []);
+
   return (
-    <ld-theme name={currentTheme} class="flex flex-col min-h-screen">
-      <ld-notification placement="bottom"></ld-notification>
+    <LdTheme name={currentTheme} class="flex flex-col min-h-screen">
+      <LdNotification placement="bottom" />
       <main
         className="relative flex items-center"
         style={{ minHeight: "80vh" }}
       >
-        <ld-bg-cells class="block absolute inset-0"></ld-bg-cells>
+        <LdBgCells class="block absolute inset-0" />
         <div className="container mx-auto px-ld-24 pt-ld-40 pb-24 relative max-w-2xl">
-          <ld-heading level="1" visual-level="b1" class="text-vy mb-ld-40">
+          <LdHeading level="1" visual-level="b1" class="text-vy mb-ld-40">
             Liquid Sandbox App
-          </ld-heading>
+          </LdHeading>
           <Form onChangeTheme={handleChangeTheme} />
         </div>
       </main>
-      {/* <Footer /> */}
-    </ld-theme>
+      <Footer />
+    </LdTheme>
   );
-}
+};
 
 export default App;

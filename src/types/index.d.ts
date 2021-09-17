@@ -1,5 +1,5 @@
 import { JSX as LocalJSX } from "@emdgroup-liquid/liquid/dist/loader";
-import { HTMLAttributes } from "react"; // or from 'vue'
+import { HTMLAttributes } from "react";
 
 type LiquidElements<T> = {
   [P in keyof T]?: T[P] &

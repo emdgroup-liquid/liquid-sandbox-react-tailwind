@@ -1,7 +1,20 @@
 import * as React from "react";
+import ReactDOMServer from "react-dom/server";
 import { ThemeName } from "@emdgroup-liquid/liquid/dist/types/components/ld-theme/ld-theme";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { titles } from "./titles";
+import {
+  LdButton,
+  LdCheckbox,
+  LdHeading,
+  LdInput,
+  LdInputMessage,
+  LdLabel,
+  LdOption,
+  LdParagraph,
+  LdSelect,
+  LdTooltip,
+} from "@emdgroup-liquid/liquid/dist/react";
 
 type FormProps = {
   onChangeTheme: (theme: ThemeName) => void;
@@ -30,7 +43,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
     dispatchEvent(
       new CustomEvent("ldNotificationAdd", {
         detail: {
-          content: (
+          content: ReactDOMServer.renderToStaticMarkup(
             <>
               <span className="block">
                 Thanks! We hope you like this sandbox. 🤗
@@ -43,7 +56,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
                   target="_blank"
                 >
                   Reach out
-                </a>
+                </a>{" "}
                 if you have any questions!
               </span>
             </>
@@ -72,11 +85,11 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       className="bg-wht rounded-l shadow-hover p-ld-32"
       onSubmit={handleSubmit(handleFormSubmit, handleFormInvalid)}
     >
-      <ld-heading level="2" class="mb-ld-32">
+      <LdHeading level="2" class="mb-ld-32">
         Hi there 👋
-      </ld-heading>
+      </LdHeading>
 
-      <ld-paragraph class="mb-ld-16">
+      <LdParagraph class="mb-ld-16">
         This small sandbox app demonstrates{" "}
         <a
           className="font-bold hover:underline"
@@ -86,69 +99,81 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         >
           Liquid Oxygen
         </a>{" "}
-        used in combination with Vue 3, Typescript, Tailwind CSS and Vite.
-      </ld-paragraph>
-      <ld-paragraph class="mb-ld-24">
+        used in combination with React, Typescript and Tailwind CSS.
+      </LdParagraph>
+      <LdParagraph class="mb-ld-24">
         Let's change the theme of the app first:
-      </ld-paragraph>
+      </LdParagraph>
 
-      <ld-label class="mb-ld-32 w-full">
+      <LdLabel class="mb-ld-32 w-full">
         App Theme
-        <ld-select
-          onChange={(ev: Event) => onChangeTheme((ev as CustomEvent).detail[0])}
+        <LdSelect
+          onChange={
+            ((
+              event: React.SyntheticEvent<
+                HTMLInputElement,
+                CustomEvent<ThemeName[]>
+              >
+            ) => onChangeTheme(event.nativeEvent.detail[0])) as unknown as any
+          }
           placeholder="Pick a theme"
           prevent-deselection
         >
-          <ld-option value="ocean" selected>
+          <LdOption value="ocean" selected>
             Ocean
-          </ld-option>
-          <ld-option value="bubblegum">Bubblegum</ld-option>
-          <ld-option value="shake">Shake</ld-option>
-          <ld-option value="solvent">Solvent</ld-option>
-          <ld-option value="tea">Tea</ld-option>
-        </ld-select>
-      </ld-label>
+          </LdOption>
+          <LdOption value="bubblegum">Bubblegum</LdOption>
+          <LdOption value="shake">Shake</LdOption>
+          <LdOption value="solvent">Solvent</LdOption>
+          <LdOption value="tea">Tea</LdOption>
+        </LdSelect>
+      </LdLabel>
 
-      <ld-paragraph class="mb-ld-24">
+      <LdParagraph class="mb-ld-24">
         Next we have set up some form validation:
-      </ld-paragraph>
+      </LdParagraph>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-ld-24 mb-ld-32">
-        <ld-label>
+        <LdLabel>
           <span className="flex justify-between">
             Your title (optional)
-            <ld-tooltip arrow position="top right" class="h-1">
-              <ld-paragraph>
+            <LdTooltip arrow position="top right" class="h-1">
+              <LdParagraph>
                 We are asking because we'd like to address you correctly.
-              </ld-paragraph>
-            </ld-tooltip>
+              </LdParagraph>
+            </LdTooltip>
           </span>
-          <ld-select
-            onInput={(event: CustomEvent) => {
-              setTitle(event.detail[0]);
-            }}
+          <LdSelect
+            onInput={
+              // TODO: React bindings
+              ((
+                event: React.SyntheticEvent<
+                  HTMLInputElement,
+                  CustomEvent<string[]>
+                >
+              ) => {
+                setTitle(event.nativeEvent.detail[0]);
+              }) as unknown as any
+            }
             placeholder="No title"
             {...register("title", {
               value: title,
             })}
           >
             {titles.map((title) => (
-              <ld-option key={title} value={title}>
+              <LdOption key={title} value={title}>
                 {title}
-              </ld-option>
+              </LdOption>
             ))}
-          </ld-select>
-          <ld-input-message
-            class={title ? undefined : "invisible"}
-            mode="valid"
-          >
+          </LdSelect>
+          <LdInputMessage class={title ? undefined : "invisible"} mode="valid">
             Good pick.
-          </ld-input-message>
-        </ld-label>
+          </LdInputMessage>
+        </LdLabel>
 
-        <ld-label>
+        <LdLabel>
           Your full name
-          <ld-input
+          <LdInput
             placeholder="e.g. Jason Parse"
             tone="dark"
             {...register("fullName", {
@@ -156,22 +181,23 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             })}
           />
           {errors.fullName ? (
-            <ld-input-message mode="error">
+            <LdInputMessage mode="error" key="error">
               Your full name is required.
-            </ld-input-message>
+            </LdInputMessage>
           ) : (
-            <ld-input-message
+            <LdInputMessage
               class={errors.fullName ? undefined : "invisible"}
               mode="valid"
+              key="success"
             >
               Lovely name.
-            </ld-input-message>
+            </LdInputMessage>
           )}
-        </ld-label>
+        </LdLabel>
 
-        <ld-label>
+        <LdLabel>
           Your email address
-          <ld-input
+          <LdInput
             type="email"
             placeholder="e.g. jason.parse@example.com"
             tone="dark"
@@ -181,25 +207,25 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             })}
           />
           {errors.website ? (
-            <ld-input-message mode="error">
+            <LdInputMessage mode="error">
               {errors.website?.type === "required" &&
                 "Your email address is required."}
               {errors.website?.type === "pattern" &&
                 "This email address is invalid."}
-            </ld-input-message>
+            </LdInputMessage>
           ) : (
-            <ld-input-message
+            <LdInputMessage
               class={dirtyFields.email ? undefined : "invisible"}
               mode="valid"
             >
               Lovely email address.
-            </ld-input-message>
+            </LdInputMessage>
           )}
-        </ld-label>
+        </LdLabel>
 
-        <ld-label>
+        <LdLabel>
           Your website (optional)
-          <ld-input
+          <LdInput
             type="url"
             placeholder="e.g. https://example.com"
             tone="dark"
@@ -208,51 +234,47 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             })}
           />
           {errors.website ? (
-            <ld-input-message mode="error">
-              This URL is invalid.
-            </ld-input-message>
+            <LdInputMessage mode="error">This URL is invalid.</LdInputMessage>
           ) : (
-            <ld-input-message
+            <LdInputMessage
               class={dirtyFields.website?.value ? undefined : "invisible"}
               mode="valid"
             >
               You even have a website! 👍
-            </ld-input-message>
+            </LdInputMessage>
           )}
-        </ld-label>
+        </LdLabel>
       </div>
 
-      <ld-label class="w-full mb-ld-32">
+      <LdLabel class="w-full mb-ld-32">
         Comment (optional)
-        <ld-input
+        <LdInput
           multiline
           placeholder="Be creative!"
           value=""
           tone="dark"
           style={{ minHeight: "7rem" }}
         />
-      </ld-label>
+      </LdLabel>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-ld-24 items-center">
-        <ld-label position="right" size="m">
+        <LdLabel position="right" size="m">
           <span className={errors.termsAccepted ? "text-rr" : undefined}>
             I accept the terms (none).
           </span>
-          <ld-checkbox
+          <LdCheckbox
             tone="dark"
             {...register("termsAccepted", {
               required: true,
             })}
           />
-        </ld-label>
+        </LdLabel>
 
         <div className="grid grid-cols-2 gap-ld-16">
-          <ld-button onClick={handleCancel} type="button" mode="secondary">
+          <LdButton onClick={handleCancel} mode="secondary">
             Cancel
-          </ld-button>
-          <ld-button onClick={handleSubmit} type="submit">
-            Submit
-          </ld-button>
+          </LdButton>
+          <LdButton onClick={handleSubmit as any}>Submit</LdButton>
         </div>
       </div>
     </form>
