@@ -20,13 +20,23 @@ type FormProps = {
   onChangeTheme: (theme: ThemeName) => void;
 };
 
+const themeOptions: { label: string; value: ThemeName }[] = [
+  { value: "ocean", label: "Ocean" },
+  { value: "bubblegum", label: "Bubblegum" },
+  { value: "shake", label: "Shake" },
+  { value: "solvent", label: "Solvent" },
+  { value: "tea", label: "Tea" },
+];
+
 const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
+  const [theme, setTheme] = React.useState<ThemeName>("ocean");
   const [title, setTitle] = React.useState<string>();
   const {
-    register,
+    formState: { errors },
+    getValues,
     handleSubmit,
-    formState: { errors, dirtyFields },
-  } = useForm();
+    register,
+  } = useForm({ mode: "onBlur" });
   const handleCancel = React.useCallback(() => {
     dispatchEvent(new CustomEvent("ldNotificationClear"));
     dispatchEvent(
@@ -67,7 +77,6 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       })
     );
   }, []);
-
   const handleFormInvalid = React.useCallback(() => {
     dispatchEvent(new CustomEvent("ldNotificationClear"));
     dispatchEvent(
@@ -85,11 +94,11 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       className="bg-wht rounded-l shadow-hover p-ld-32"
       onSubmit={handleSubmit(handleFormSubmit, handleFormInvalid)}
     >
-      <LdHeading level="2" class="mb-ld-32">
+      <LdHeading className="mb-ld-32" level="2">
         Hi there 👋
       </LdHeading>
 
-      <LdParagraph class="mb-ld-16">
+      <LdParagraph className="mb-ld-16">
         This small sandbox app demonstrates{" "}
         <a
           className="font-bold hover:underline"
@@ -101,35 +110,36 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         </a>{" "}
         used in combination with React, Typescript and Tailwind CSS.
       </LdParagraph>
-      <LdParagraph class="mb-ld-24">
+      <LdParagraph className="mb-ld-24">
         Let's change the theme of the app first:
       </LdParagraph>
 
-      <LdLabel class="mb-ld-32 w-full">
+      <LdLabel className="mb-ld-32 w-full">
         App Theme
         <LdSelect
-          onChange={
+          onInput={
             ((
               event: React.SyntheticEvent<
                 HTMLInputElement,
                 CustomEvent<ThemeName[]>
               >
-            ) => onChangeTheme(event.nativeEvent.detail[0])) as unknown as any
+            ) => {
+              setTheme(event.nativeEvent.detail[0]);
+              onChangeTheme(event.nativeEvent.detail[0]);
+            }) as unknown as any
           }
           placeholder="Pick a theme"
           prevent-deselection
         >
-          <LdOption value="ocean" selected>
-            Ocean
-          </LdOption>
-          <LdOption value="bubblegum">Bubblegum</LdOption>
-          <LdOption value="shake">Shake</LdOption>
-          <LdOption value="solvent">Solvent</LdOption>
-          <LdOption value="tea">Tea</LdOption>
+          {themeOptions.map(({ label, value }) => (
+            <LdOption selected={theme === value} value={value} key={value}>
+              {label}
+            </LdOption>
+          ))}
         </LdSelect>
       </LdLabel>
 
-      <LdParagraph class="mb-ld-24">
+      <LdParagraph className="mb-ld-24">
         Next we have set up some form validation:
       </LdParagraph>
 
@@ -137,7 +147,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         <LdLabel>
           <span className="flex justify-between">
             Your title (optional)
-            <LdTooltip arrow position="top right" class="h-1">
+            <LdTooltip arrow position="top right" className="h-1">
               <LdParagraph>
                 We are asking because we'd like to address you correctly.
               </LdParagraph>
@@ -145,7 +155,6 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
           </span>
           <LdSelect
             onInput={
-              // TODO: React bindings
               ((
                 event: React.SyntheticEvent<
                   HTMLInputElement,
@@ -156,17 +165,21 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               }) as unknown as any
             }
             placeholder="No title"
-            {...register("title", {
-              value: title,
-            })}
           >
-            {titles.map((title) => (
-              <LdOption key={title} value={title}>
-                {title}
+            {titles.map((titleOption) => (
+              <LdOption
+                key={titleOption}
+                value={titleOption}
+                selected={title === titleOption}
+              >
+                {titleOption}
               </LdOption>
             ))}
           </LdSelect>
-          <LdInputMessage class={title ? undefined : "invisible"} mode="valid">
+          <LdInputMessage
+            className={title ? "visible" : "invisible"}
+            mode="valid"
+          >
             Good pick.
           </LdInputMessage>
         </LdLabel>
@@ -180,19 +193,15 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               required: true,
             })}
           />
-          {errors.fullName ? (
-            <LdInputMessage mode="error" key="error">
-              Your full name is required.
-            </LdInputMessage>
-          ) : (
-            <LdInputMessage
-              class={errors.fullName ? undefined : "invisible"}
-              mode="valid"
-              key="success"
-            >
-              Lovely name.
-            </LdInputMessage>
-          )}
+          <LdInputMessage
+            className={
+              errors.fullName || getValues("fullName") ? "visible" : "invisible"
+            }
+            mode={errors.fullName ? "error" : "valid"}
+          >
+            {errors.fullName && "Your full name is required."}
+            {getValues("fullName") && "Lovely name."}
+          </LdInputMessage>
         </LdLabel>
 
         <LdLabel>
@@ -206,21 +215,18 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               pattern: /^\S+@\S+$/i,
             })}
           />
-          {errors.website ? (
-            <LdInputMessage mode="error">
-              {errors.website?.type === "required" &&
-                "Your email address is required."}
-              {errors.website?.type === "pattern" &&
-                "This email address is invalid."}
-            </LdInputMessage>
-          ) : (
-            <LdInputMessage
-              class={dirtyFields.email ? undefined : "invisible"}
-              mode="valid"
-            >
-              Lovely email address.
-            </LdInputMessage>
-          )}
+          <LdInputMessage
+            className={
+              errors.email || getValues("email") ? "visible" : "invisible"
+            }
+            mode={errors.email ? "error" : "valid"}
+          >
+            {errors.email?.type === "required" &&
+              "Your email address is required."}
+            {errors.email?.type === "pattern" &&
+              "This email address is invalid."}
+            {!errors.email && getValues("email") && "Lovely email address."}
+          </LdInputMessage>
         </LdLabel>
 
         <LdLabel>
@@ -233,20 +239,21 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               pattern: /^(https?:\/\/.*)?$/,
             })}
           />
-          {errors.website ? (
-            <LdInputMessage mode="error">This URL is invalid.</LdInputMessage>
-          ) : (
-            <LdInputMessage
-              class={dirtyFields.website?.value ? undefined : "invisible"}
-              mode="valid"
-            >
-              You even have a website! 👍
-            </LdInputMessage>
-          )}
+          <LdInputMessage
+            className={
+              errors.website || getValues("website") ? "visible" : "invisible"
+            }
+            mode={errors.website ? "error" : "valid"}
+          >
+            {errors.website && "This URL is invalid."}
+            {!errors.website &&
+              getValues("website") &&
+              "You even have a website! 👍"}
+          </LdInputMessage>
         </LdLabel>
       </div>
 
-      <LdLabel class="w-full mb-ld-32">
+      <LdLabel className="w-full mb-ld-32">
         Comment (optional)
         <LdInput
           multiline

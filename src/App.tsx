@@ -47,15 +47,15 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <LdTheme name={currentTheme} class="flex flex-col min-h-screen">
+    <LdTheme name={currentTheme} className="flex flex-col min-h-screen">
       <LdNotification placement="bottom" />
       <main
         className="relative flex items-center"
         style={{ minHeight: "80vh" }}
       >
-        <LdBgCells class="block absolute inset-0" />
+        <LdBgCells className="block absolute inset-0" />
         <div className="container mx-auto px-ld-24 pt-ld-40 pb-24 relative max-w-2xl">
-          <LdHeading level="1" visual-level="b1" class="text-vy mb-ld-40">
+          <LdHeading level="1" visual-level="b1" className="text-vy mb-ld-40">
             Liquid Sandbox App
           </LdHeading>
           <Form onChangeTheme={handleChangeTheme} />
