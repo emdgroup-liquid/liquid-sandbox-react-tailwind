@@ -1,21 +1,21 @@
-import { LdIcon, LdParagraph } from "@emdgroup-liquid/liquid/dist/react";
+import { LdIcon, LdTypo } from '@emdgroup-liquid/liquid/dist/react'
 
 const App: React.FC = () => (
   <footer
     className="relative flex-grow"
-    style={{ background: "var(--ld-thm-bg-secondary)" }}
+    style={{ background: 'var(--ld-thm-primary-active)' }}
   >
     <div className="container text-center mx-auto px-ld-24 pt-20 pb-24 max-w-2xl flex flex-col items-center justify-center">
-      <LdParagraph className="text-wht mb-ld-12">
+      <LdTypo className="text-wht mb-ld-12">
         Checkout the source code on
         <a
           href="https://github.com/emdgroup-liquid/liquid-sandbox-vue-tailwind"
           className="ml-ld-4 inline-flex items-center"
-          style={{ color: "var(--ld-thm-accent)" }}
+          style={{ color: 'var(--ld-thm-accent)' }}
         >
           GitHub
           <svg
-            role={"presentation"}
+            role={'presentation'}
             className="inline-block ml-ld-6 h-ld-16"
             viewBox="0 0 18 18"
             fill="none"
@@ -29,18 +29,18 @@ const App: React.FC = () => (
             ></path>
           </svg>
         </a>
-      </LdParagraph>
-      <LdParagraph className="text-wht opacity-60">
-        Made with{" "}
+      </LdTypo>
+      <LdTypo className="text-wht opacity-60">
+        Made with{' '}
         <LdIcon
           name="tea-pot"
           aria-label="lots of tea"
           className="transform translate-y-ld-4"
-        />{" "}
+        />{' '}
         by the UX Strategy &amp; Design Team at EMD Digital
-      </LdParagraph>
+      </LdTypo>
     </div>
   </footer>
-);
+)
 
-export default App;
+export default App

@@ -1,12 +1,12 @@
-import { JSX as LocalJSX } from "@emdgroup-liquid/liquid/dist/loader";
-import { HTMLAttributes } from "react";
+import { JSX as LocalJSX } from '@emdgroup-liquid/liquid/dist/loader'
+import { HTMLAttributes } from 'react'
 
 type LiquidElements<T> = {
   [P in keyof T]?: T[P] &
-    Omit<HTMLAttributes, "className"> & {
-      class?: string;
-    };
-};
+    Omit<HTMLAttributes, 'className'> & {
+      class?: string
+    }
+}
 
 declare global {
   namespace JSX {
