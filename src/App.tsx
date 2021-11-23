@@ -53,7 +53,7 @@ const App: React.FC = () => {
       >
         <LdBgCells className="block absolute inset-0" />
         <div className="container mx-auto px-ld-24 pt-ld-40 pb-24 relative max-w-2xl">
-          <LdTypo variant="b1" className="text-vy mb-ld-40">
+          <LdTypo variant="b1" className="text-thm-warning mb-ld-40">
             Liquid Sandbox App
           </LdTypo>
           <Form onChangeTheme={handleChangeTheme} />

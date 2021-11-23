@@ -311,7 +311,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-ld-24 items-center">
         <LdLabel position="right" size="m">
-          <span className={errors.termsAccepted ? 'text-rr' : undefined}>
+          <span className={errors.termsAccepted ? 'text-thm-error' : undefined}>
             I accept the terms (none).
           </span>
           <LdCheckbox
