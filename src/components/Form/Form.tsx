@@ -100,7 +100,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       <LdTypo className="mb-ld-16">
         This small sandbox app demonstrates{' '}
         <a
-          className="font-bold hover:underline text-thm-primary hover:text-thm-primary-hover"
+          className="font-bold hover:underline text-thm-secondary hover:text-thm-secondary-hover"
           href="https://emdgroup-liquid.github.io/liquid/"
           rel="noreferrer"
           target="_blank"
