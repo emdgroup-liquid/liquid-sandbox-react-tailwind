@@ -22,7 +22,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
   },
   "scripts": {
-    "postinstall": "cp -r ./node_modules/@emdgroup-liquid/liquid/dist/liquid/assets ./public/assets",
+    "postinstall": "cp -r ./node_modules/@emdgroup-liquid/liquid/dist/liquid/assets ./public",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
