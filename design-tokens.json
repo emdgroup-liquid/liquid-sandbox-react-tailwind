@@ -1,0 +1,265 @@
+{
+  "themes": {
+    "athinia": {
+      "primary-highlight": "ap-010",
+      "primary-focus": "ap-400",
+      "primary-hover": "ap-800",
+      "primary-active": "ap-900",
+      "primary": "ap",
+      "primary-alpha-low": "ap-alpha-low",
+      "primary-alpha-lowest": "ap-alpha-lowest",
+      "secondary-highlight": "ab-010",
+      "secondary-focus": "ab-200",
+      "secondary-hover": "ab-600",
+      "secondary-active": "ab-800",
+      "secondary": "ab",
+      "success-highlight": "ag-010",
+      "success-focus": "ag-100",
+      "success-hover": "ag-500",
+      "success-active": "ag-700",
+      "success": "ag",
+      "warning-highlight": "ay-010",
+      "warning-focus": "ay-050",
+      "warning-hover": "ay-400",
+      "warning-active": "ay-600",
+      "warning": "ay",
+      "error-highlight": "ar-010",
+      "error-focus": "ar-200",
+      "error-hover": "ar-600",
+      "error-active": "ar-800",
+      "error": "ar",
+      "default": true
+    }
+  },
+  "shadows": {
+    "stacked": "0rem 0rem 0.25rem rgba(23, 35, 55, 0.15), 0rem 0.25rem 0.25rem rgba(23, 35, 55, 0.15)",
+    "sticky": "0rem 0rem 0.25rem rgba(23, 35, 55, 0.15), 0rem 0.75rem 1.25rem rgba(23, 35, 55, 0.15)",
+    "hover": "0rem 0rem 0.25rem rgba(23, 35, 55, 0.15), 0rem 1rem 2rem rgba(23, 35, 55, 0.15)",
+    "active": "0rem 0rem 0.25rem rgba(23, 35, 55, 0.15), 0rem 1.5rem 2.5rem rgba(23, 35, 55, 0.15)"
+  },
+  "spacings": {
+    "1": "0.0625rem",
+    "2": "0.125rem",
+    "4": "0.25rem",
+    "6": "0.375rem",
+    "8": "0.5rem",
+    "12": "0.75rem",
+    "16": "1rem",
+    "24": "1.5rem",
+    "32": "2rem",
+    "40": "2.5rem"
+  },
+  "colors": {
+    "ar-010": "rgb(255, 250, 250)",
+    "ar-050": "rgb(255, 237, 239)",
+    "ar-100": "rgb(255, 217, 223)",
+    "ar-200": "rgb(255, 178, 191)",
+    "ar-300": "rgb(255, 134, 159)",
+    "ar-400/default": "rgb(251, 112, 141)",
+    "ar-alpha-low": "rgba(251, 112, 141, 0.2)",
+    "ar-alpha-lowest": "rgba(251, 112, 141, 0.1)",
+    "ar-500": "rgb(201, 74, 103)",
+    "ar-600": "rgb(169, 50, 80)",
+    "ar-700": "rgb(137, 23, 57)",
+    "ar-800": "rgb(102, 0, 35)",
+    "ar-900": "rgb(64, 0, 19)",
+    "ay-010": "rgb(255, 252, 248)",
+    "ay-050": "rgb(255, 239, 212)",
+    "ay-100": "rgb(255, 222, 161)",
+    "ay-200/default": "rgb(240, 194, 107)",
+    "ay-alpha-low": "rgba(240, 194, 107, 0.2)",
+    "ay-alpha-lowest": "rgba(240, 194, 107, 0.1)",
+    "ay-300": "rgb(216, 162, 46)",
+    "ay-400": "rgb(186, 136, 16)",
+    "ay-500": "rgb(156, 111, 0)",
+    "ay-600": "rgb(124, 88, 0)",
+    "ay-700": "rgb(94, 66, 0)",
+    "ay-800": "rgb(66, 45, 0)",
+    "ay-900": "rgb(39, 25, 0)",
+    "ag-010": "rgb(241, 255, 249)",
+    "ag-050": "rgb(181, 255, 232)",
+    "ag-100": "rgb(141, 248, 219)",
+    "ag-200": "rgb(104, 221, 191)",
+    "ag-300/default": "rgb(53, 199, 165)",
+    "ag-alpha-low": "rgba(53, 199, 165, 0.2)",
+    "ag-alpha-lowest": "rgba(53, 199, 165, 0.1)",
+    "ag-400": "rgb(0, 164, 132)",
+    "ag-500": "rgb(0, 135, 108)",
+    "ag-600": "rgb(0, 107, 85)",
+    "ag-700": "rgb(0, 81, 64)",
+    "ag-800": "rgb(0, 56, 43)",
+    "ag-900": "rgb(1, 32, 25)",
+    "ab-010": "rgb(251, 251, 255)",
+    "ab-050": "rgb(239, 239, 255)",
+    "ab-100": "rgb(221, 225, 255)",
+    "ab-200": "rgb(184, 196, 255)",
+    "ab-300": "rgb(146, 166, 255)",
+    "ab-400/default": "rgb(99, 127, 255)",
+    "ab-alpha-low": "rgba(99, 127, 255, 0.2)",
+    "ab-alpha-lowest": "rgba(99, 127, 255, 0.1)",
+    "ab-500": "rgb(79, 108, 235)",
+    "ab-600": "rgb(51, 82, 209)",
+    "ab-700": "rgb(14, 54, 185)",
+    "ab-800": "rgb(0, 32, 143)",
+    "ab-900": "rgb(0, 17, 90)",
+    "ap-010": "rgb(255, 251, 252)",
+    "ap-050": "rgb(248, 237, 255)",
+    "ap-100": "rgb(236, 220, 255)",
+    "ap-200": "rgb(213, 187, 255)",
+    "ap-300": "rgb(189, 153, 255)",
+    "ap-400": "rgb(162, 126, 228)",
+    "ap-500": "rgb(135, 100, 200)",
+    "ap-600/default": "rgb(116, 91, 179)",
+    "ap-alpha-low": "rgba(116, 91, 179, 0.2)",
+    "ap-alpha-lowest": "rgba(116, 91, 179, 0.1)",
+    "ap-700": "rgb(85, 49, 147)",
+    "ap-800": "rgb(62, 21, 123)",
+    "ap-900": "rgb(37, 0, 90)",
+    "neutral-010": "rgb(248, 248, 252)",
+    "neutral-050": "rgb(236, 236, 244)",
+    "neutral-100": "rgb(225, 225, 234)",
+    "neutral-200": "rgb(199, 199, 209)",
+    "neutral-300": "rgb(169, 169, 186)",
+    "neutral-400": "rgb(139, 139, 156)",
+    "neutral-500": "rgb(119, 119, 136)",
+    "neutral-600/default": "rgb(94, 94, 114)",
+    "neutral-700": "rgb(69, 69, 84)",
+    "neutral-800": "rgb(43, 43, 59)",
+    "neutral-900": "rgb(15, 25, 46)",
+    "neutral-999": "rgb(0, 0, 0)",
+    "wht/default": "rgb(255, 255, 255)",
+    "wht-alpha-highest": "rgba(255, 255, 255, 0.8)",
+    "wht-alpha-high": "rgba(255, 255, 255, 0.7)",
+    "wht-alpha-medium": "rgba(255, 255, 255, 0.5)",
+    "wht-alpha-low": "rgba(255, 255, 255, 0.2)",
+    "wht-alpha-lowest": "rgba(255, 255, 255, 0.1)",
+    "wht-alpha-none": "rgba(255, 255, 255, 0)"
+  },
+  "typography": {
+    "xh1": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "5.75rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "xh2": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "4.5rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "xh3": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "4rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "xh4": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "3rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "xh5": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "2.5rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "xh6": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "2.25rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h1": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "2rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h2": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "1.625rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h3": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "1.375rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h4": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "1.125rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h5": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "h6": {
+      "fontFamily": "'Baton Turbo', Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 500,
+      "lineHeight": "120%"
+    },
+    "body-xs": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "0.75rem",
+      "lineHeight": "180%"
+    },
+    "body-s": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "176%"
+    },
+    "body-m": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "160%"
+    },
+    "body-l": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "1.125rem",
+      "lineHeight": "160%"
+    },
+    "body-xl": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "1.375rem",
+      "lineHeight": "160%"
+    },
+    "cap-l": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "1.25rem",
+      "fontWeight": 900,
+      "lineHeight": "140%"
+    },
+    "cap-m": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 900,
+      "lineHeight": "140%"
+    },
+    "label-m": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "140%"
+    },
+    "label-s": {
+      "fontFamily": "'Source Sans Pro', Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "140%"
+    }
+  },
+  "borderRadii": {
+    "s": "0",
+    "m": "0",
+    "l": "0",
+    "full": "999rem"
+  }
+}
