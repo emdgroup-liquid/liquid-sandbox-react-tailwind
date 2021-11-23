@@ -6,9 +6,8 @@ const App: React.FC = () => (
       <LdTypo className="text-wht mb-ld-12">
         Checkout the source code on
         <a
-          href="https://github.com/emdgroup-liquid/liquid-sandbox-vue-tailwind"
-          className="ml-ld-4 inline-flex items-center"
-          style={{ color: 'var(--ld-thm-accent)' }}
+          href="https://github.com/emdgroup-liquid/liquid-sandbox-react-tailwind"
+          className="ml-ld-4 inline-flex items-center text-thm-secondary"
         >
           GitHub
           <svg
