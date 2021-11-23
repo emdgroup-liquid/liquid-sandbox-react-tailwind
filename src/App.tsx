@@ -25,9 +25,11 @@ const successMessages = [
 ]
 
 const App: React.FC = () => {
-  const [currentTheme, setCurrentTheme] = React.useState<string>('ocean')
+  const [currentTheme, setCurrentTheme] = React.useState<string | undefined>(
+    'athinia'
+  )
   const handleChangeTheme = React.useCallback((theme: string) => {
-    setCurrentTheme(theme)
+    setCurrentTheme(theme !== 'default' ? theme : undefined)
     setTimeout(() => {
       const content = successMessages.shift()
       dispatchEvent(new CustomEvent('ldNotificationClear'))
@@ -45,7 +47,11 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div className={`flex flex-col min-h-screen ld-theme-${currentTheme}`}>
+    <div
+      className={`flex flex-col min-h-screen${
+        currentTheme ? ` ld-theme-${currentTheme}` : ''
+      }`}
+    >
       <LdNotification placement="bottom" />
       <main
         className="relative flex items-center"

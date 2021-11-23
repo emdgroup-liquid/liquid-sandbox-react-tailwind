@@ -19,15 +19,12 @@ type FormProps = {
 }
 
 const themeOptions: { label: string; value: string }[] = [
-  { value: 'ocean', label: 'Ocean' },
-  { value: 'bubblegum', label: 'Bubblegum' },
-  { value: 'shake', label: 'Shake' },
-  { value: 'solvent', label: 'Solvent' },
-  { value: 'tea', label: 'Tea' },
+  { value: 'default', label: 'Default' },
+  { value: 'athinia', label: 'Athinia' },
 ]
 
 const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
-  const [theme, setTheme] = React.useState<string>('ocean')
+  const [theme, setTheme] = React.useState<string>('athinia')
   const [title, setTitle] = React.useState<string>()
   const { formState, getValues, handleSubmit, register, setValue } = useForm({
     mode: 'onTouched',
