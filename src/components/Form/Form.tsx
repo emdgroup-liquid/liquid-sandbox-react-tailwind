@@ -36,7 +36,10 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
   const { errors, dirtyFields } = formState
   const isFormDirty = formState.submitCount > 0
 
-  const handleCancel = React.useCallback(() => {
+  const handleCancel = React.useCallback<
+    React.MouseEventHandler<HTMLLdButtonElement>
+  >((event) => {
+    event.preventDefault()
     dispatchEvent(new CustomEvent('ldNotificationClear'))
     dispatchEvent(
       new CustomEvent('ldNotificationAdd', {
@@ -191,17 +194,18 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             {...register('name', {
               required: true,
             })}
-            onInput={(ev) => {
+            onInput={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('name', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: isFormDirty || dirtyFields.name,
               })
             }}
-            onBlur={(ev) => {
+            onBlur={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('name', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: true,
                 shouldDirty: true,
               })
             }}
+            invalid={errors.name}
           />
           <LdInputMessage
             className={
@@ -227,17 +231,18 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               required: true,
               pattern: /\S+@\S+\.\S+/,
             })}
-            onInput={(ev) => {
+            onInput={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('email', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: isFormDirty || dirtyFields.email,
               })
             }}
-            onBlur={(ev) => {
+            onBlur={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('email', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: true,
                 shouldDirty: true,
               })
             }}
+            invalid={errors.email}
           />
           <LdInputMessage
             className={
@@ -265,17 +270,18 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
               pattern:
                 /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)$/,
             })}
-            onInput={(ev) => {
+            onInput={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('website', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: isFormDirty || dirtyFields.website,
               })
             }}
-            onBlur={(ev) => {
+            onBlur={(ev: React.FormEvent<HTMLLdInputElement>) => {
               setValue('website', (ev.target as HTMLLdInputElement).value, {
                 shouldValidate: true,
                 shouldDirty: true,
               })
             }}
+            invalid={errors.website}
           />
           <LdInputMessage
             className={
@@ -314,7 +320,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             {...register('termsAccepted', {
               required: true,
             })}
-            onInput={(ev) => {
+            onInput={(ev: React.FormEvent<HTMLLdCheckboxElement>) => {
               setValue(
                 'termsAccepted',
                 (ev.target as HTMLLdCheckboxElement).checked,
@@ -325,10 +331,10 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         </LdLabel>
 
         <div className="grid grid-cols-2 gap-ld-16">
-          <LdButton onClick={handleCancel} mode="secondary">
+          <LdButton onClick={handleCancel} mode="secondary" type="button">
             Cancel
           </LdButton>
-          <LdButton onClick={handleSubmit as any}>Submit</LdButton>
+          <LdButton>Submit</LdButton>
         </div>
       </div>
     </form>
