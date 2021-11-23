@@ -329,7 +329,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         </LdLabel>
 
         <div className="grid grid-cols-2 gap-ld-16">
-          <LdButton onClick={handleCancel} mode="secondary" type="button">
+          <LdButton onClick={handleCancel} mode="secondary">
             Cancel
           </LdButton>
           <LdButton>Submit</LdButton>
