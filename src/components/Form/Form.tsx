@@ -100,14 +100,15 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       <LdTypo className="mb-ld-16">
         This small sandbox app demonstrates{' '}
         <a
-          className="font-bold hover:underline"
+          className="font-bold hover:underline text-thm-primary hover:text-thm-primary-hover"
           href="https://emdgroup-liquid.github.io/liquid/"
           rel="noreferrer"
           target="_blank"
         >
           Liquid Oxygen
         </a>{' '}
-        used in combination with React, Typescript and Tailwind CSS.
+        with <b>Custom Design Tokens for Athinia</b> used in combination with
+        React, Typescript and Tailwind CSS.
       </LdTypo>
       <LdTypo className="mb-ld-24">
         Let's change the theme of the app first:
