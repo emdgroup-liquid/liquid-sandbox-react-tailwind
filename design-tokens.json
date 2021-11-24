@@ -118,6 +118,8 @@
     "neutral-050": "rgb(235, 241, 255)",
     "neutral-100": "rgb(217, 227, 248)",
     "neutral-200": "rgb(189, 199, 220)",
+    "neutral-300": "rgb(161, 171, 192)",
+    "neutral-400": "rgb(135, 145, 165)",
     "neutral-500": "rgb(110, 120, 138)",
     "neutral-600/default": "rgb(85, 95, 113)",
     "neutral-700": "rgb(61, 71, 88)",
