@@ -1,6 +1,6 @@
 import { LdIcon, LdTypo } from '@emdgroup-liquid/liquid/dist/react'
 
-const App: React.FC = () => (
+const Footer: React.FC = () => (
   <footer className="relative flex-grow bg-thm-primary-active">
     <div className="container text-center mx-auto px-ld-24 pt-20 pb-24 max-w-2xl flex flex-col items-center justify-center">
       <LdTypo className="text-wht mb-ld-12">
@@ -11,7 +11,7 @@ const App: React.FC = () => (
         >
           GitHub
           <svg
-            role={'presentation'}
+            role="presentation"
             className="inline-block ml-ld-6 h-ld-16"
             viewBox="0 0 18 18"
             fill="none"
@@ -39,4 +39,4 @@ const App: React.FC = () => (
   </footer>
 )
 
-export default App
+export default Footer

@@ -299,6 +299,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       <LdLabel className="w-full mb-ld-32">
         Comment (optional)
         <LdInput
+          className="max-w-full min-w-full"
           multiline
           placeholder="Be creative!"
           value=""

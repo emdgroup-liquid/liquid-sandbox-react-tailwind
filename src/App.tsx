@@ -1,11 +1,11 @@
 import * as React from 'react'
+import {
+LdNotification,
+LdTypo,
+} from '@emdgroup-liquid/liquid/dist/react'
 import Footer from './components/Footer/Footer'
 import Form from './components/Form/Form'
-import {
-  LdBgCells,
-  LdNotification,
-  LdTypo,
-} from '@emdgroup-liquid/liquid/dist/react'
+import BgPattern from './components/BgPattern/BgPattern'
 
 const successMessages = [
   'Nice! 👍',
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         className="relative flex items-center"
         style={{ minHeight: '80vh' }}
       >
-        <LdBgCells className="block absolute inset-0" />
+        <BgPattern />
         <div className="container mx-auto px-ld-24 pt-ld-40 pb-24 relative max-w-2xl">
           <LdTypo variant="h1" className="text-thm-warning mb-ld-40">
             Athinia Sandbox App
