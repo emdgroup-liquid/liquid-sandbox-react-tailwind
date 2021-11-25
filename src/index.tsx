@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './liquid.global.css'
+import './font-faces.css'
+import './liquid.globals.css'
 import 'tailwindcss/tailwind.css'
 import { setAssetPath } from '@emdgroup-liquid/liquid'
 import App from './App'
