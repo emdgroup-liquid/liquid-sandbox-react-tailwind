@@ -39,7 +39,6 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
   const handleCancel = React.useCallback<
     React.MouseEventHandler<HTMLLdButtonElement>
   >((event) => {
-    event.preventDefault()
     dispatchEvent(new CustomEvent('ldNotificationClear'))
     dispatchEvent(
       new CustomEvent('ldNotificationAdd', {
@@ -331,7 +330,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         </LdLabel>
 
         <div className="grid grid-cols-2 gap-ld-16">
-          <LdButton onClick={handleCancel} mode="secondary">
+          <LdButton onClick={handleCancel} mode="secondary" type="button">
             Cancel
           </LdButton>
           <LdButton>Submit</LdButton>

@@ -1239,12 +1239,12 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@emdgroup-liquid/liquid@^1.0.0-rc.16":
-  version "1.0.0-rc.16"
-  resolved "https://registry.yarnpkg.com/@emdgroup-liquid/liquid/-/liquid-1.0.0-rc.16.tgz#c66ec556c746cdee25cf67ca26a663ece758a018"
-  integrity sha512-MkLTN7ZOmUFRPodpDUFgp+jeyFyF+J9eNUXun0OxaIEyhvtxhDDGdHQ4xi8GUtfxwyVGbET/SgHtz1ca9tIM4A==
+"@emdgroup-liquid/liquid@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@emdgroup-liquid/liquid/-/liquid-1.0.0-rc.19.tgz#0eccb7cdf7b82182b1ecb369ab8f46ccbfbb7e5a"
+  integrity sha512-cPTOHrv1xStiPY8eswzfHZu9gsT0Hj773Th0xOgU3sLj3p71+pf+bG7TqyWSs87g7ZuuUy9qRXi4qFz/v/b4MA==
   dependencies:
-    "@stencil/core" "^2.7.1"
+    "@stencil/core" "^2.11.0"
     tether "^2.0.0"
   optionalDependencies:
     react "^17.0.2"
@@ -1604,10 +1604,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stencil/core@^2.7.1":
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.10.0.tgz#acf44b9ae6578a20f0d09bf94296e833beadc885"
-  integrity sha512-15rWMTPQ/sp0lSV82HVCXkIya3QLN+uBl7pqK4JnTrp4HiLrzLmNbWjbvgCs55gw0lULbCIGbRIEsFz+Pe/Q+A==
+"@stencil/core@^2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.11.0.tgz#8accc2791e2c34cce2d2aa8b40864dd40be4e10c"
+  integrity sha512-/IubCWhVXCguyMUp/3zGrg3c882+RJNg/zpiKfyfJL3kRCOwe+/MD8OoAXVGdd+xAohZKIi1Ik+EHFlsptsjLg==
 
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"
