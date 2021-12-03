@@ -1,8 +1,5 @@
 import * as React from 'react'
-import {
-LdNotification,
-LdTypo,
-} from '@emdgroup-liquid/liquid/dist/react'
+import { LdNotification, LdTypo } from '@emdgroup-liquid/liquid/dist/react'
 import Footer from './components/Footer/Footer'
 import Form from './components/Form/Form'
 import BgPattern from './components/BgPattern/BgPattern'
