@@ -45,7 +45,10 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div className={`flex flex-col min-h-screen ld-theme-${currentTheme}`}>
+    <div
+      style={{ minWidth: '20rem' }}
+      className={`flex flex-col min-h-screen ld-theme-${currentTheme}`}
+    >
       <LdNotification placement="bottom" />
       <main
         className="relative flex items-center"
