@@ -23,7 +23,7 @@
   },
   "scripts": {
     "postinstall": "cp -r ./node_modules/@emdgroup-liquid/liquid/dist/liquid/assets ./public",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider craco start",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
