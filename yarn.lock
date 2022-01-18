@@ -1239,10 +1239,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@emdgroup-liquid/liquid@^1.0.0-rc.23":
-  version "1.0.0-rc.23"
-  resolved "https://registry.yarnpkg.com/@emdgroup-liquid/liquid/-/liquid-1.0.0-rc.23.tgz#c6e0fd5cb726622d81c450e2a6448da1af5cbeec"
-  integrity sha512-QwedvU9jUi1M6j0fwRDDsI7HvwAUUyJH40tirU4c9KZv13fmi09jiEgzybO3mynw4BfozlvdQFOa5qmgda7FBQ==
+"@emdgroup-liquid/liquid@^1.0.0-rc.27":
+  version "1.0.0-rc.27"
+  resolved "https://registry.yarnpkg.com/@emdgroup-liquid/liquid/-/liquid-1.0.0-rc.27.tgz#92aaacb840f9a4b802c2ed11260b2fa9984bb9a8"
+  integrity sha512-daxR8wdgqdihK+etN0rAnAQ+y3p5xt7j3wEwl7IwxXqq4za7BCA+h/JRIkvc8G995YLGPCGUeCKFIpVrkol61A==
   dependencies:
     "@stencil/core" "^2.12.0"
     tether "^2.0.0"

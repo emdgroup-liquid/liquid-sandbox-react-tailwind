@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import 'tailwindcss/tailwind.css'
-import { setAssetPath } from '@emdgroup-liquid/liquid/dist/components'
 import App from './App'
 
-setAssetPath(window.location.origin)
+// @ts-ignore
+window.__LD_ASSET_PATH__ = window.location.origin + '/liquid/'
 
 ReactDOM.render(
   <React.StrictMode>
