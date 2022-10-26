@@ -1,6 +1,3 @@
-import * as React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { useForm } from 'react-hook-form'
 import { titles } from './titles'
 import {
   LdButton,
@@ -13,6 +10,9 @@ import {
   LdTooltip,
   LdTypo,
 } from '@emdgroup-liquid/liquid/dist/react'
+import * as React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { useForm } from 'react-hook-form'
 
 type FormProps = {
   onChangeTheme: (theme: string) => void
@@ -118,17 +118,10 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
       <LdLabel className="mb-ld-32 w-full">
         App Theme
         <LdSelect
-          onInput={
-            ((
-              event: React.SyntheticEvent<
-                HTMLInputElement,
-                CustomEvent<string[]>
-              >
-            ) => {
-              setTheme(event.nativeEvent.detail[0])
-              onChangeTheme(event.nativeEvent.detail[0])
-            }) as unknown as any
-          }
+          onLdchange={(ev: CustomEvent) => {
+            setTheme(ev.detail[0])
+            onChangeTheme(ev.detail[0])
+          }}
           placeholder="Pick a theme"
           prevent-deselection
         >
@@ -155,16 +148,9 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             </LdTooltip>
           </span>
           <LdSelect
-            onInput={
-              ((
-                event: React.SyntheticEvent<
-                  HTMLInputElement,
-                  CustomEvent<string[]>
-                >
-              ) => {
-                setTitle(event.nativeEvent.detail[0])
-              }) as unknown as any
-            }
+            onLdchange={(ev: CustomEvent) => {
+              setTitle(ev.detail[0])
+            }}
             placeholder="No title"
           >
             {titles.map((titleOption) => (
@@ -204,7 +190,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
                 shouldDirty: true,
               })
             }}
-            invalid={errors.name}
+            invalid={!!errors.name}
           />
           <LdInputMessage
             className={
@@ -241,7 +227,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
                 shouldDirty: true,
               })
             }}
-            invalid={errors.email}
+            invalid={!!errors.email}
           />
           <LdInputMessage
             className={
@@ -280,7 +266,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
                 shouldDirty: true,
               })
             }}
-            invalid={errors.website}
+            invalid={!!errors.website}
           />
           <LdInputMessage
             className={
@@ -315,7 +301,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
           </span>
           <LdCheckbox
             tone="dark"
-            invalid={errors.termsAccepted}
+            invalid={!!errors.termsAccepted}
             {...register('termsAccepted', {
               required: true,
             })}

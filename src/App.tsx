@@ -1,11 +1,11 @@
-import * as React from 'react'
+import Footer from './components/Footer/Footer'
+import Form from './components/Form/Form'
 import {
   LdBgCells,
   LdNotification,
   LdTypo,
 } from '@emdgroup-liquid/liquid/dist/react'
-import Footer from './components/Footer/Footer'
-import Form from './components/Form/Form'
+import * as React from 'react'
 
 const successMessages = [
   'Nice! 👍',
