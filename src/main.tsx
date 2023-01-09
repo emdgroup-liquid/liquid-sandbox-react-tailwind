@@ -1,8 +1,9 @@
 import App from './App'
+import './index.css'
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import 'tailwindcss/tailwind.css'
 
 // @ts-ignore
@@ -10,9 +11,10 @@ window.__LD_ASSET_PATH__ = window.location.origin + '/liquid/'
 
 defineCustomElements()
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container!)
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )
