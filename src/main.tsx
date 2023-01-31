@@ -4,7 +4,6 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import 'tailwindcss/tailwind.css'
 
 // @ts-ignore
 window.__LD_ASSET_PATH__ = window.location.origin + '/liquid/'
