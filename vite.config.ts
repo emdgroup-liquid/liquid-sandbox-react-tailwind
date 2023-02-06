@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import copy from 'rollup-plugin-copy'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,4 +16,9 @@ export default defineConfig({
       hook: 'buildStart',
     }),
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+  },
 })
