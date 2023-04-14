@@ -11,7 +11,7 @@ expect.extend(matchers)
 // See https://github.com/jsdom/jsdom/issues/2177#issuecomment-376139329
 const originalConsoleError = console.error
 console.error = function (msg) {
-  if (msg.startsWith('Error: Could not parse CSS stylesheet')) return
+  if (msg.toString().startsWith('Error: Could not parse CSS stylesheet')) return
   originalConsoleError(msg)
 }
 

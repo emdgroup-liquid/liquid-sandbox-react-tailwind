@@ -38,7 +38,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
 
   const handleCancel = React.useCallback<
     React.MouseEventHandler<HTMLLdButtonElement>
-  >((event) => {
+  >(() => {
     dispatchEvent(new CustomEvent('ldNotificationClear'))
     dispatchEvent(
       new CustomEvent('ldNotificationAdd', {
@@ -93,6 +93,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
     <form
       autoComplete="off"
       className="bg-wht rounded-l shadow-hover p-ld-32"
+      data-testid="form"
       onSubmit={handleSubmit(handleFormSubmit, handleFormInvalid)}
     >
       <LdTypo className="mb-ld-32" variant="h2">
@@ -112,7 +113,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
         used in combination with React, Typescript and Tailwind CSS.
       </LdTypo>
       <LdTypo className="mb-ld-24">
-        Let's change the theme of the app first:
+        Let&apos;s change the theme of the app first:
       </LdTypo>
 
       <LdLabel className="mb-ld-32 w-full">
@@ -143,7 +144,7 @@ const Form: React.FC<FormProps> = ({ onChangeTheme }) => {
             Your title (optional)
             <LdTooltip arrow position="top right" className="h-1">
               <LdTypo>
-                We are asking because we'd like to address you correctly.
+                We are asking because we&apos;d like to address you correctly.
               </LdTypo>
             </LdTooltip>
           </span>

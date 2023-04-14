@@ -31,6 +31,7 @@ const App: React.FC = () => {
     setTimeout(() => {
       const content = successMessages.shift()
       dispatchEvent(new CustomEvent('ldNotificationClear'))
+      if (!content) return
       dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
           detail: {
@@ -40,7 +41,7 @@ const App: React.FC = () => {
           },
         })
       )
-      successMessages.push(content!)
+      successMessages.push(content)
     }, 500)
   }, [])
 

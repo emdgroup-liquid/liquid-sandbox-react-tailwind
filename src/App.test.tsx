@@ -1,5 +1,5 @@
 import App from './App'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 
@@ -31,6 +31,10 @@ test('validates input', async () => {
   expect(ldButtonSubmit).toBeInTheDocument()
   userEvent.click(ldButtonSubmit)
 
-  // const ldInputMessage = screen.getByText('Your full name is required.')
-  // expect(ldInputMessage).toBeInTheDocument()
+  const form = await screen.findByTestId('form')
+  expect(form).toBeInTheDocument()
+
+  fireEvent.submit(form)
+
+  await screen.findByText('Your full name is required.')
 })
