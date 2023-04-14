@@ -1,4 +1,5 @@
 import { LdIcon, LdTypo } from '@emdgroup-liquid/liquid/dist/react'
+import * as React from 'react'
 
 const Footer: React.FC = () => (
   <footer className="relative flex-grow bg-thm-primary-active">
