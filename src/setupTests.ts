@@ -16,11 +16,7 @@ console.error = function (msg) {
 }
 
 beforeAll(() => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  global.__LD_ASSET_PATH__ = '/'
   defineCustomElements()
-
   global.fetch = vi
     .fn()
     .mockReturnValue(Promise.resolve({ text: () => Promise.resolve('') }))
