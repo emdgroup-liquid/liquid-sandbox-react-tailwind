@@ -1,0 +1,20 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - main
+      - rc
+  pull_request:
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3
+        with:
+          merge-method: 'rebase'
+          target: 'minor'
+          github-token: ${{ github.token }}

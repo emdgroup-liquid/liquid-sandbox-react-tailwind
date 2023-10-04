@@ -1,8 +1,9 @@
 import App from './App'
 import { render, waitFor, fireEvent } from '@testing-library/react'
-import { screen } from "shadow-dom-testing-library";
+import { screen } from 'shadow-dom-testing-library'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { expect, test } from 'vitest'
 
 async function waitForLiquidToHydrate() {
   return waitFor(() => {
@@ -41,8 +42,8 @@ test('validates input', async () => {
 
   await waitFor(
     () => {
-      expect(screen.getByShadowText(/The form is invalid/i)).toBeDefined();
+      expect(screen.getByShadowText(/The form is invalid/i)).toBeDefined()
     },
     { timeout: 5000 }
-  );
+  )
 })

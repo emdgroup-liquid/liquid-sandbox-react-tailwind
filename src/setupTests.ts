@@ -1,11 +1,7 @@
 import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader'
-import '@testing-library/jest-dom'
-import matchers from '@testing-library/jest-dom/matchers'
+import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
-import { vi } from 'vitest'
-
-// Extend Vitest's expect method with methods from react-testing-library.
-expect.extend(matchers)
+import { vi, beforeAll, afterEach } from 'vitest'
 
 // Prevent display of error message from JSDom CSS parser.
 // See https://github.com/jsdom/jsdom/issues/2177#issuecomment-376139329
