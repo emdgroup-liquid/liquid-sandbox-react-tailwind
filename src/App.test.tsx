@@ -1,5 +1,6 @@
 import App from './App'
-import { render, screen, waitFor, fireEvent } from '@testing-library/react'
+import { render, waitFor, fireEvent } from '@testing-library/react'
+import { screen } from "shadow-dom-testing-library";
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 
@@ -37,4 +38,11 @@ test('validates input', async () => {
   fireEvent.submit(form)
 
   await screen.findByText('Your full name is required.')
+
+  await waitFor(
+    () => {
+      expect(screen.getByShadowText(/The form is invalid/i)).toBeDefined();
+    },
+    { timeout: 5000 }
+  );
 })
