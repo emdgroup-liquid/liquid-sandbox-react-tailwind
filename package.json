@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emdgroup-liquid/liquid": "^5.12.5",
+    "@emdgroup-liquid/liquid": "^5.12.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2"
