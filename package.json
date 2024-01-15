@@ -23,7 +23,7 @@
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
-    "jsdom": "^22.1.0",
+    "jsdom": "^23.2.0",
     "postcss": "^8.4.33",
     "prettier": "^3.2.2",
     "rollup-plugin-copy": "^3.5.0",
