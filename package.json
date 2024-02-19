@@ -24,7 +24,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^22.1.0",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.35",
     "prettier": "^3.2.2",
     "rollup-plugin-copy": "^3.5.0",
     "shadow-dom-testing-library": "^1.11.2",
